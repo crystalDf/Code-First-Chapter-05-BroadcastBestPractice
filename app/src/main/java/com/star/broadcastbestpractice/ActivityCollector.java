@@ -11,7 +11,11 @@ public class ActivityCollector {
     private static List<Activity> sActivities = new ArrayList<>();
 
     public static void addActivity(Activity activity) {
-        sActivities.add(activity);
+
+        if (!sActivities.contains(activity)) {
+            sActivities.add(activity);
+        }
+
     }
 
     public static void removeActivity(Activity activity) {
@@ -24,5 +28,9 @@ public class ActivityCollector {
                 activity.finish();
             }
         }
+    }
+
+    public static List<Activity> getActivities() {
+        return sActivities;
     }
 }
